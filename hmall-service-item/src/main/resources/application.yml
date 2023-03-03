@@ -1,0 +1,32 @@
+server:
+  port: 8081
+spring:
+  application:
+    name: itemservice
+  datasource:
+    url: jdbc:mysql://localhost:3306/hmall?characterEncoding=UTF-8
+    username: root
+    password: Wwb20020302.
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  cloud:
+    nacos:
+      server-addr: localhost:8848
+  rabbitmq:
+    host: 192.168.200.200
+    port: 5672
+    virtual-host: /
+    username: itcast
+    password: 123321
+mybatis-plus:
+  type-aliases-package: com.hmall.item.pojo
+  configuration:
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      update-strategy: not_null
+      id-type: auto
+logging:
+  level:
+    cn.itcast.feign.client: debug
+  pattern:
+    dateformat: HH:mm:ss:SSS
