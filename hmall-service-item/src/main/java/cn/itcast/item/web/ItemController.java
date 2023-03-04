@@ -6,8 +6,6 @@ import cn.itcast.hmall.dto.common.ResultDTO;
 import cn.itcast.hmall.dto.item.SearchItemDTO;
 import cn.itcast.hmall.pojo.item.Item;
 import cn.itcast.item.service.ItemService;
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
-import com.baomidou.mybatisplus.extension.conditions.query.LambdaQueryChainWrapper;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
