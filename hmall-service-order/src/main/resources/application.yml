@@ -4,13 +4,13 @@ spring:
   application:
     name: orderservice
   datasource:
-    url: jdbc:mysql://192.168.200.130:3306/hmall?useSSL=false&characterEncoding=UTF-8
+    url: jdbc:mysql://192.168.200.200:3306/hmall?characterEncoding=UTF-8
     username: root
-    password: root
-    driver-class-name: com.mysql.jdbc.Driver
+    password: Wwb20020302.
+    driver-class-name: com.mysql.cj.jdbc.Driver
   cloud:
     nacos:
-      server-addr: 192.168.200.130:8848
+      server-addr: 192.168.200.200:8848
 mybatis-plus:
   type-aliases-package: com.hmall.item.pojo
   configuration:
@@ -25,7 +25,7 @@ logging:
   pattern:
     dateformat: HH:mm:ss:SSS
 xxljob:
-  admin-address: http://192.168.200.130:8888/xxl-job-admin
+  admin-address: http://192.168.200.200:8888/xxl-job-admin
   executor-name: hmall-order-executor
   executor-port: 9991
   log-path: C:/xxljob/logs

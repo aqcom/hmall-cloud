@@ -31,7 +31,7 @@
         <spring-cloud.version>Hoxton.SR10</spring-cloud.version>
         <mysql.version>8.0.31</mysql.version>
         <mybatis.plus.version>3.4.3</mybatis.plus.version>
-        <elasticsearch.version>7.12.1</elasticsearch.version>
+        <elasticsearch.version>7.13.1</elasticsearch.version>
     </properties>
 
     <dependencyManagement>

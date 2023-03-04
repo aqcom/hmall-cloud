@@ -5,9 +5,9 @@ spring:
     name: searchservice
   cloud:
     nacos:
-      server-addr: 192.168.200.130:8848
+      server-addr: localhost:8848
   rabbitmq:
-    host: 192.168.200.130
+    host: 192.168.200.200
     port: 5672
     virtual-host: /
     username: itcast
@@ -18,5 +18,5 @@ logging:
   pattern:
     dateformat: HH:mm:ss:SSS
 elasticsearch:
-  host: 192.168.200.130
+  host: 192.168.200.200
   port: 9200

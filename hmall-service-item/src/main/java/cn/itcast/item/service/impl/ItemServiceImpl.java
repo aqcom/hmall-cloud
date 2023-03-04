@@ -13,17 +13,20 @@ import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.apache.commons.lang.StringUtils;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
+import javax.annotation.Resource;
 
 @Service
 public class ItemServiceImpl extends ServiceImpl<ItemMapper, Item> implements ItemService {
     @Autowired
     private ItemMapper itemMapper;
-    @Override
-    public ResultDTO updateByIdStatus(Integer id, Integer status) {
-        return null;
-    }
+
+    @Resource
+    private RabbitTemplate template;
+
 
     @Override
     public PageDTO<Item> pageQuery(SearchItemDTO request) {
@@ -57,6 +60,21 @@ public class ItemServiceImpl extends ServiceImpl<ItemMapper, Item> implements It
         }
 
 
+    }
+
+    @Override
+    public ResultDTO updateByIdStatus(Integer id, Integer status) {
+        Item item = itemMapper.selectById(id);
+        item.setStatus(status);
+        int i = itemMapper.updateById(item);
+
+        if (status == 1) {
+            template.convertAndSend("item.topic", "", id);
+        } else {
+            template.convertAndSend("item.topic", "", id);
+        }
+
+        return i == 1 ? ResultDTO.ok() : ResultDTO.error();
     }
 
 }
