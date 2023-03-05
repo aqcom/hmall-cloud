@@ -21,7 +21,7 @@ import javax.annotation.Resource;
 
 @Service
 public class ItemServiceImpl extends ServiceImpl<ItemMapper, Item> implements ItemService {
-    @Autowired
+    @Resource
     private ItemMapper itemMapper;
 
     @Resource
